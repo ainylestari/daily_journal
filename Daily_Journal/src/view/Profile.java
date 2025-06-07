@@ -18,6 +18,7 @@ public class Profile extends javax.swing.JFrame {
     public Profile() {
         initComponents();
         setLocationRelativeTo(null);
+        int user_id = Integer.parseInt(Session.get_id_user());
         
         try {
             koneksi = Koneksi.getKoneksi();
@@ -135,7 +136,7 @@ public class Profile extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("No HP             :");
 
-        btnSimpan.setText("Simpan");
+        btnSimpan.setText("Save");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSimpanActionPerformed(evt);
@@ -156,7 +157,7 @@ public class Profile extends javax.swing.JFrame {
             }
         });
 
-        btnBack.setText("Return");
+        btnBack.setText("Back");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

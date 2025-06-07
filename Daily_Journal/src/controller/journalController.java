@@ -4,46 +4,33 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import model.Session;
 import model.journal; // Perbaiki nama class agar konsisten
 
 public class journalController {
 
-    public void simpanJournal(journal j) {
-        String sql = "INSERT INTO journal (judul, isi, tanggal, foto, user_id) VALUES (?, ?, ?, ?, ?)";
+    public static List<journal> getJournal() {
+        List<journal> list = new ArrayList<>();
+        String sql = "SELECT * FROM journal WHERE user_id = ?";
+        int user_id = Integer.parseInt(Session.get_id_user());
+
         try (Connection conn = Koneksi.getKoneksi();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, j.getJudul());
-            ps.setString(2, j.getIsi());
-            ps.setDate(3, Date.valueOf(j.getTanggal()));
-            ps.setBytes(4, j.getFoto());
-            ps.setInt(5, j.getUser_id());
+            ps.setInt(1, user_id);
 
-            ps.executeUpdate();
-            System.out.println("Berhasil disimpan.");
-        } catch (Exception e) {
-            System.err.println("Gagal menyimpan: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
+            try (ResultSet rs = ps.executeQuery()) {
 
-    public static List<journal> getJournal() {
-        List<journal> list = new ArrayList<>();
-        String sql = "SELECT * FROM journal";
+                while (rs.next()) {
+                    int id = rs.getInt("id_journal");
+                    String judul = rs.getString("judul");
+                    String isi = rs.getString("isi");
+                    LocalDate tanggal = rs.getDate("tanggal").toLocalDate();
+                    byte[] foto = rs.getBytes("foto");
 
-        try (Connection conn = Koneksi.getKoneksi();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-
-            while (rs.next()) {
-                int id = rs.getInt("id_journal");
-                String judul = rs.getString("judul");
-                String isi = rs.getString("isi");
-                LocalDate tanggal = rs.getDate("tanggal").toLocalDate();
-                byte[] foto = rs.getBytes("foto");
-
-                journal j = new journal(id, judul, isi, foto, tanggal, 0);
-                list.add(j);
+                    journal j = new journal(id, judul, isi, foto, tanggal, user_id);
+                    list.add(j);
+                }
             }
 
         } catch (Exception e) {
@@ -52,6 +39,7 @@ public class journalController {
 
         return list;
     }
+
 
 
     public void hapusJournal(int id) {

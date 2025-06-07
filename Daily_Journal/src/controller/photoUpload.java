@@ -1,13 +1,12 @@
 package controller;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
-import javax.swing.*;
 
 public class photoUpload {
-    public static String uploadPhoto(JFrame parentFrame) {
+    public static byte[] uploadPhoto(JFrame parentFrame) {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Pilih Foto");
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -19,22 +18,12 @@ public class photoUpload {
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
 
-            File destDir = new File("photos");
-            if (!destDir.exists()) {
-                destDir.mkdirs();
-            }
-
-            File destFile = new File(destDir, selectedFile.getName());
-
             try {
-                Files.copy(selectedFile.toPath(), destFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                JOptionPane.showMessageDialog(parentFrame, "Foto berhasil diunggah!");
-                return destFile.getAbsolutePath();
+                return Files.readAllBytes(selectedFile.toPath());
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(parentFrame, "Gagal menyimpan foto: " + e.getMessage());
+                JOptionPane.showMessageDialog(parentFrame, "Gagal membaca foto: " + e.getMessage());
             }
         }
-
         return null;
     }
 }

@@ -1,8 +1,6 @@
 package view;
 
 import controller.journalController;
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.util.List;
@@ -12,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
+import model.Session;
 import model.journal;
 
 public class journalList extends javax.swing.JFrame {
@@ -20,6 +19,7 @@ public class journalList extends javax.swing.JFrame {
 
     public journalList() {
         initComponents();
+        int user_id = Integer.parseInt(Session.get_id_user());
 
         jPanelGrid = new javax.swing.JPanel();
         jPanelGrid.setLayout(new java.awt.GridLayout(0, 3, 10, 10));
@@ -27,7 +27,6 @@ public class journalList extends javax.swing.JFrame {
         JScrollPane scrollPane = new javax.swing.JScrollPane(jPanelGrid);
         scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        // Masukkan scroll ke jPanelContent yang sudah ada di NetBeans GUI
         jPanelContent.setLayout(new java.awt.BorderLayout());
         jPanelContent.add(scrollPane, java.awt.BorderLayout.CENTER);
 
@@ -43,7 +42,6 @@ public class journalList extends javax.swing.JFrame {
             panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
             panel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-            // FOTO
             if (data.getFoto() != null) {
                 ImageIcon icon = new ImageIcon(data.getFoto());
                 Image img = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
@@ -51,19 +49,19 @@ public class journalList extends javax.swing.JFrame {
                 lblFoto.setAlignmentX(JLabel.CENTER_ALIGNMENT);
                 panel.add(lblFoto);
             } else {
-                JLabel noImg = new JLabel("No Image");
-                noImg.setAlignmentX(JLabel.CENTER_ALIGNMENT);
-                panel.add(noImg);
+                ImageIcon defaultIcon = new ImageIcon(getClass().getResource("/img/noimg.png"));
+                Image defaultImg = defaultIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+                JLabel lblDefault = new JLabel(new ImageIcon(defaultImg));
+                lblDefault.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+                panel.add(lblDefault);
             }
 
-            // JUDUL
             JLabel lblJudul = new JLabel(data.getJudul());
             lblJudul.setAlignmentX(JLabel.CENTER_ALIGNMENT);
             lblJudul.setHorizontalAlignment(SwingConstants.CENTER);
             lblJudul.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 14));
             panel.add(lblJudul);
 
-            // TANGGAL
             JLabel lblTanggal = new JLabel(data.getTanggal().toString());
             lblTanggal.setAlignmentX(JLabel.CENTER_ALIGNMENT);
             lblTanggal.setHorizontalAlignment(SwingConstants.CENTER);
@@ -113,20 +111,20 @@ public class journalList extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(161, 161, 161)
                 .addComponent(jLabel1)
-                .addGap(123, 123, 123))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
-        jButton1.setText("kembali");
+        jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -137,14 +135,14 @@ public class journalList extends javax.swing.JFrame {
         jPanelContent.setLayout(jPanelContentLayout);
         jPanelContentLayout.setHorizontalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 405, Short.MAX_VALUE)
+            .addGap(0, 474, Short.MAX_VALUE)
         );
         jPanelContentLayout.setVerticalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 406, Short.MAX_VALUE)
         );
 
-        jButton4.setText("tambah journal");
+        jButton4.setText("Add Journal");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);

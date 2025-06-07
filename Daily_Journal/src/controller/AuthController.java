@@ -8,6 +8,7 @@ import view.Login;
 import view.menuUtama;
 
 public class AuthController {
+    
     public AuthController(Login login, ModelLogin ML){
         login.getbtnLogin().addActionListener(new ActionListener(){
             
@@ -18,6 +19,7 @@ public class AuthController {
                 if(ML.isLogin(username, password)){
                     JOptionPane.showMessageDialog(null, "Berhasil Login cuy");
                     ML.setUserSession(username);
+                    int user_id = Integer.parseInt(Session.get_id_user());
                     new menuUtama().show();
                     login.dispose();
                 }

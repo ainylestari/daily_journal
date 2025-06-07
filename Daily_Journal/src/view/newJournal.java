@@ -1,6 +1,7 @@
 package view;
 
 import controller.journalSave;
+import controller.photoUpload;
 import java.awt.Component;
 import java.util.Date;
 import javax.swing.JFileChooser;
@@ -14,20 +15,8 @@ public class newJournal extends javax.swing.JFrame {
     public newJournal() {
         initComponents();
         setLocationRelativeTo(null);
+        int user_id = Integer.parseInt(Session.get_id_user());
     }
-    
-    public class PhotoUpload {
-        public static String uploadPhoto(Component parent) {
-            JFileChooser fileChooser = new JFileChooser();
-            fileChooser.setDialogTitle("Pilih Foto");
-            int result = fileChooser.showOpenDialog(parent);
-            if (result == JFileChooser.APPROVE_OPTION) {
-                return fileChooser.getSelectedFile().getAbsolutePath();
-            }
-            return null;
-        }
-    }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -75,23 +64,23 @@ public class newJournal extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("NEW JOURNAL");
+        jLabel1.setText("New Journal");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
+                .addGap(105, 105, 105)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(14, 14, 14)
                 .addComponent(jLabel1)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
@@ -108,7 +97,7 @@ public class newJournal extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setText("SAVE");
+        jButton1.setText("Save");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -122,7 +111,7 @@ public class newJournal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Kembali");
+        jButton3.setText("Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -174,22 +163,18 @@ public class newJournal extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(6, 6, 6))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        fotoPath = PhotoUpload.uploadPhoto(this);
-        if (fotoPath != null) {
-            try {
-                java.nio.file.Path path = java.nio.file.Paths.get(fotoPath);
-                fotoData = java.nio.file.Files.readAllBytes(path);
-                System.out.println("Foto berhasil diupload");
-            } catch (Exception e) {
-                System.err.println("Gagal membaca file foto: " + e.getMessage());
-            }
+        fotoData = photoUpload.uploadPhoto(this);
+        if (fotoData != null) {
+            System.out.println("Foto berhasil diupload");
+        } else {
+            System.err.println("Foto gagal diupload");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -204,15 +189,13 @@ public class newJournal extends javax.swing.JFrame {
         
         int userId = Integer.parseInt(Session.get_id_user());
 
-        if (title.isEmpty() || content.isEmpty() || selectedDate == null || fotoData == null) {
+        if (title.isEmpty() || content.isEmpty() || selectedDate == null) {
             jOptionPane1.showMessageDialog(this, "Semua data harus diisi!");
             return;
         }
 
-        // Panggil method untuk menyimpan ke database
         journalSave.saveJournal(this, title, content, selectedDate, fotoData, userId);
 
-        // Reset input
         jTextField1.setText("");
         jTextArea1.setText("");
         jDateChooser2.setDate(null);

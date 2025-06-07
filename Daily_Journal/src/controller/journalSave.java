@@ -14,10 +14,8 @@ public class journalSave {
             return;
         }
 
-        // Simpan ke database
         saveToDatabase(title, content, selectedDate, fotoData, userId);
 
-        // Feedback UI
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String dateString = sdf.format(selectedDate);
 
@@ -37,8 +35,6 @@ public class journalSave {
         }
     }
 
-    
-    
     public static void saveToDatabase(String title, String content, Date selectedDate, byte[] fotoData, int userId) {
         String sql = "INSERT INTO journal (judul, isi, tanggal, foto, user_id) VALUES (?, ?, ?, ?, ?)";
 
@@ -48,8 +44,12 @@ public class journalSave {
             ps.setString(1, title);
             ps.setString(2, content);
             ps.setDate(3, new java.sql.Date(selectedDate.getTime()));
-            ps.setBytes(4, fotoData);
-            ps.setInt(5, userId); // tambahkan user_id di sini
+            if (fotoData != null) {
+                ps.setBytes(4, fotoData);
+            } else {
+                ps.setNull(4, java.sql.Types.BLOB);
+            }
+            ps.setInt(5, userId);
 
             ps.executeUpdate();
 
@@ -58,7 +58,5 @@ public class journalSave {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Gagal menyimpan ke database: " + e.getMessage());
         }
-}
-
-
+    }
 }
