@@ -1,5 +1,6 @@
 package controller;
 
+import model.Koneksi;
 import java.sql.*;
 import java.time.LocalDate;
 import model.journal;

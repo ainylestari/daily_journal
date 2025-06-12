@@ -1,5 +1,6 @@
 package controller;
 
+import model.Koneksi;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

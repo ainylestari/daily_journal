@@ -3,23 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/journalSave.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/Profile.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/photoUpload.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/detailJournal.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/menuUtama.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/Login.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/AuthController.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/main/main.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/tampilkan.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/model/Session.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/journalController.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/newJournal.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/journalList.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/model/journal.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/model/User.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/ModelLogin.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/Koneksi.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/img/hiclipart.com%20(2).png</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/img/hiclipart.com%20(20).png</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/Login.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/menuUtama.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/img/hiclipart.com%20(9).png</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/img/hiclipart.com%20(6).png</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/photoUpload.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/img/noimg.png</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/img/hiclipart.com.png</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/img/hiclipart.com%20(18).png</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/model/User.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/model/Koneksi.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/journalSave.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/main/main.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/LoginController.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/model/ModelLogin.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/detailJournal.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/model/Session.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/newJournal.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/tampilkan.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/journalList.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/controller/journalController.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/daily_journal/Daily_Journal/src/view/Profile.java</file>
         </group>
     </open-files>
 </project-private>
